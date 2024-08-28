@@ -24,4 +24,5 @@ class Figura {
         return null;
     }
 
+    
 }

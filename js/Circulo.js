@@ -1,4 +1,6 @@
+
 class Circulo extends Figura {
+
     constructor(posX, posY, radio, fill, context, estilo) {
         super(posX, posY, fill, context, estilo);
         this.radius = radio;
@@ -15,8 +17,9 @@ class Circulo extends Figura {
     }
 
     estaElPunto(x, y) {
-        let xx = this.posX-x ;
-        let yy = this.posY-y ;
-        return ((Math.sqrt(xx * xx + yy * yy) < this.radius));
+        let dx = this.posX - x;
+       let dy = this.posY - y;
+        let distancia = Math.sqrt(dx * dx + dy * dy);
+        return distancia < this.radius;
     }
 }
