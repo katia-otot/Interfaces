@@ -30,9 +30,27 @@
                     <img id="playButton" src="images/play.png" alt="Play Button">
                 </a>
             </div>
-            <div class="controles"></div>
+             <!-- Botón de About para abrir el modal -->
+            <div class="about">
+                <img id="aboutButton" src="images/about.png" alt="About Button">
+            </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Información del Juego</h2>
+            <p><strong>Controles:</strong></p>
+            <ul>
+                <li>Pulsar <strong>Espacio</strong> para saltar.</li>
+                <li>Esquiva los obstáculos para ganar puntos.</li>
+            </ul>
+            <p><strong>Cómo ganar puntos:</strong></p>
+            <p>Ganas puntos cada vez que esquivas un obstáculo. Intenta obtener la mayor cantidad de puntos antes de perder todas tus vidas.</p>
+        </div>
+    </div>
+    
     <script src="Runner.js"></script>
     <script src="Obstaculo.js"></script> 
     <script src="main2.js"></script>
