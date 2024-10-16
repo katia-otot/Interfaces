@@ -77,7 +77,6 @@ function gameLoop() {
         ) {
             // Colisión detectada
             vidas--;
-            console.log("Vida perdida! Vidas restantes: " + vidas);
             obstaculos.splice(index, 1); // Remover obstáculo que fue chocado
             obstaculo.remove(); // Eliminar el obstáculo del DOM
             actualizarVidas(); // Actualizar la visualización de los corazones
