@@ -10,6 +10,30 @@ body {
 #piso {
     width: 100%;
 }
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.game img {
+    max-width: 80%; /* Ajusta según el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 20px;
+}
+.play img {
+    max-width: 50%; /* Ajusta según el tamaño de la imagen Play */
+    height: auto; /* Mantiene la proporción de la imagen */
+    cursor: pointer; /* Añade un cursor de mano al pasar sobre la imagen */
+}
+
+.play img:hover {
+    transform: scale(1.05); /* Efecto al pasar el mouse para que crezca un poco */
+    transition: transform 0.2s ease-in-out;
+}
 
 #contenedor {
     height: 100vh; /* Ajusta la altura para que ocupe toda la ventana */

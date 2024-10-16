@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Animacion</title>
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div id="contenedor">
         <div id="contenedor-vidas">
             <div class="corazon"></div>
@@ -18,23 +19,13 @@
         </div>
         <div id="marcadorPuntos"></div>
         <div id="cielo"></div>
+        <div id="personaje" class="correr"></div>
         <div id="piso"></div> 
-
-        <div id="menu">
-            <div class="game">
-                <img src="images/game.png" alt="titulodeljuego">
-            </div>
-            <!-- Botón de Play -->
-            <div class="play">
-                <a href="juego.html">
-                    <img id="playButton" src="images/play.png" alt="Play Button">
-                </a>
-            </div>
-            <div class="controles"></div>
-        </div>
     </div>
+    
+    <script src="Personaje.js"></script>
     <script src="Runner.js"></script>
     <script src="Obstaculo.js"></script> 
-    <script src="main2.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
