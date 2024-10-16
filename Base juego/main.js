@@ -102,7 +102,30 @@ function generarObstaculo() {
 }
 
 function terminarJuego() {
-    clearInterval(gameInterval); // Detener el ciclo del juego
-    clearInterval(obstaculoInterval); // Detener la generación de obstáculos
-    alert("Juego terminado. ¡Has perdido todas las vidas!"); // Mostrar alerta
+    // Detener el ciclo del juego
+    clearInterval(gameInterval);
+    clearInterval(obstaculoInterval);
+
+    // Ocultar el personaje y los obstáculos
+    document.getElementById("personaje").style.display = "none"; // Ocultar personaje
+    const obstaculos = document.querySelectorAll(".obstaculo");
+    obstaculos.forEach(obstaculo => obstaculo.style.display = "none"); // Ocultar obstáculos
+
+    // Mostrar solo los corazones perdidos, fondo y piso
+    const vidas = document.getElementById("contenedor-vidas");
+    vidas.style.display = "block"; // Mostrar solo los corazones
+
+    // Mostrar imagen de "Game Over"
+    mostrarGameOver();
+}
+
+function mostrarGameOver() {
+    const gameOverImg = document.createElement("img");
+    gameOverImg.src = "images/gameover.png";
+    gameOverImg.alt = "Game Over";
+    gameOverImg.id = "gameOver";
+
+    // Añadir la imagen al contenedor principal
+    const contenedor = document.getElementById("contenedor");
+    contenedor.appendChild(gameOverImg);
 }
