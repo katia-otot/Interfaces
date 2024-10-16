@@ -1,3 +1,4 @@
+//BaseJuego/Runner.js
 class Runner extends Personaje {
 
     constructor() {

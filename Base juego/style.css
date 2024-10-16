@@ -1,3 +1,4 @@
+/*BaseJuego/style.css*/
 body {
     margin: 0;
     padding: 0;
@@ -20,6 +21,7 @@ body {
     overflow-y: hidden; 
     overflow-x: hidden;
 }
+
 #contenedor-vidas {
     position: absolute; /* Permite posicionar el contenedor de forma absoluta */
     top: 10px; /* Ajusta la distancia desde la parte superior */
@@ -31,14 +33,21 @@ body {
     width: 50px; /* Ajusta el tamaño de la imagen */
     height: 50px; /* Mantiene la proporción de la imagen */
     background-image: url('images/vida.png'); /* Ruta a la imagen del corazón */
-    background-size: contain; /* Asegura que la imagen se ajuste al contenedor */
+    background-size: contain; /* Asegura que la imagen se ajuste al contenedor sin recortarse */
+    background-position: center; /* Centra la imagen dentro del contenedor */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     z-index: 2;
 }
 
+.corazon.vacio{
+    background-image: url('images/sinVida.png'); /* Imagen de un corazón vacío */
+    background-size: contain; /* Asegura que la imagen se ajuste al contenedor sin recortarse */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+}
+
 #cielo {
     height: 80%;
-    background: url("images/sprite_explosion_fx_0001.png") repeat-x;
+    background: url("images/backgroundColorGrass.png") repeat-x;
     background-size: 1280px 100%;
     position: absolute;
     animation: sky 15s linear infinite;
@@ -57,7 +66,7 @@ body {
 
 #piso {
     height: 20%;
-    background: url("images/floor.png") repeat-x;
+    background: url("images/floor1.jpg") repeat-x;
     background-size: 831px 100%;
     animation: floor 2s linear infinite;
     position: absolute;
@@ -169,6 +178,12 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
 }
+.obstaculo5 {
+    bottom: 19%; /* Alineado con el piso */
+    background-image: url('images/obstaculo5.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
 @keyframes obstaculo {
     from {
@@ -179,4 +194,18 @@ body {
     }
 }
 
+#marcadorPuntos {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajuste adicional para centrar correctamente */
+    display: flex;
+    gap: 5px; /* Espacio entre los números */
+    z-index: 2; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+#marcadorPuntos img {
+    width: 30px; /* Ajusta el tamaño de las imágenes de números */
+    height: 40px; /* Ajusta el tamaño según sea necesario */
+}
 

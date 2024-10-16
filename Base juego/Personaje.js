@@ -1,3 +1,4 @@
+//BaseJuego/Personaje.js
 class Personaje {
 
     constructor() {
