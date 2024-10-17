@@ -99,13 +99,25 @@ function gameLoop() {
             runnerRect.top < obstaculoRect.bottom &&
             runnerRect.bottom > obstaculoRect.top
         ) {
-            // Colisión detectada
-            vidas--;
-            obstaculos.splice(index, 1); // Remover obstáculo que fue chocado
-            obstaculo.remove(); // Eliminar el obstáculo del DOM
-            actualizarVidas(); // Actualizar la visualización de los corazones
-        }
+          // Colisión detectada con cualquier obstáculo
+        if (obstaculo.classList.contains('obstaculo2')) {
+        // Si es el obstáculo2, se recupera una vida
+            if (vidas < 3) {
+                vidas++; // Recuperar una vida si es menor a 3
+                actualizarVidas(); // Actualizar la visualización de los corazones
 
+            }
+            puntos++;
+            actualizarPuntos(); 
+            } else {
+                // Colisión con otros obstáculos: perder una vida
+                vidas--;
+                actualizarVidas(); // Actualizar la visualización de los corazones
+            }
+
+        obstaculos.splice(index, 1); // Remover obstáculo que fue chocado
+        obstaculo.remove(); // Eliminar el obstáculo del DOM
+        }
          // Verificar si el obstáculo ha pasado completamente al personaje
         if (obstaculoRect.right < runnerRect.left) {
             // Incrementar puntos cuando el obstáculo pasa
@@ -152,4 +164,3 @@ function mostrarGameOver() {
     const contenedor = document.getElementById("contenedor");
     contenedor.appendChild(gameOverImg);
 }
-w
