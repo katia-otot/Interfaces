@@ -1,5 +1,7 @@
 //BaseJuego/main.js
 "use strict"
+const heartImg = new Image();
+heartImg.src = 'imagen/corazonAnimacion.png';
 
 let runner = new Runner();
 
@@ -105,7 +107,7 @@ function gameLoop() {
             if (vidas < 3) {
                 vidas++; // Recuperar una vida si es menor a 3
                 actualizarVidas(); // Actualizar la visualización de los corazones
-
+                
             }
             puntos++;
             actualizarPuntos(); 
@@ -113,6 +115,7 @@ function gameLoop() {
                 // Colisión con otros obstáculos: perder una vida
                 vidas--;
                 actualizarVidas(); // Actualizar la visualización de los corazones
+               
             }
 
         obstaculos.splice(index, 1); // Remover obstáculo que fue chocado
@@ -164,3 +167,4 @@ function mostrarGameOver() {
     const contenedor = document.getElementById("contenedor");
     contenedor.appendChild(gameOverImg);
 }
+
