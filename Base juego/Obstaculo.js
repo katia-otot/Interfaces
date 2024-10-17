@@ -39,6 +39,9 @@ class Obstaculo extends Personaje {
 
         // Aplicar las clases de estilo genérico para todos los obstáculos
         this.enemigo.classList.add("obstaculo");
+
+        // Ajustar la duración de la animación según la velocidad actual
+        this.enemigo.style.animationDuration = `${velocidadObstaculos}s`;
     }
 
     status() {
