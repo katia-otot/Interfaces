@@ -19,7 +19,26 @@ playButton.addEventListener('click', () => {
     document.getElementById('contenedor').style.display = 'block';
 
     // Iniciar el ciclo del juego (gameLoop ya se ejecuta automáticamente)
+    detenerMusicaMenu(); // Detenemos la música del menú
 });
+
+// Reproducir música del menú
+function reproducirMusicaMenu() {
+    let musicaMenu = document.getElementById('menuMusic');
+    musicaMenu.play(); // Iniciar la reproducción
+}
+// Detener la música del menú
+function detenerMusicaMenu() {
+    let musicaMenu = document.getElementById('menuMusic');
+    musicaMenu.pause(); // Pausar la reproducción
+    musicaMenu.currentTime = 0; // Reiniciar la música
+}
+
+// Al cargar el menú
+document.addEventListener('DOMContentLoaded', (event) => {
+    reproducirMusicaMenu(); // Reproduce la música cuando el menú esté listo
+});
+
 
 // Cuando el usuario hace clic en el botón de About, se abre el modal
 aboutBtn.addEventListener("click", () => {
