@@ -54,6 +54,7 @@ function aumentarVelocidad() {
     document.querySelectorAll('.obstaculo').forEach(obstaculo => {
         obstaculo.style.animationDuration = `${velocidadObstaculos}s`;
     });
+   
 }
 
 function reducirTiempoGeneracion() {
@@ -151,3 +152,4 @@ function mostrarGameOver() {
     const contenedor = document.getElementById("contenedor");
     contenedor.appendChild(gameOverImg);
 }
+w
