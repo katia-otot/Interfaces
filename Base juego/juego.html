@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <audio id="gameMusic" loop>
+        <source src="music/musicaGame.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="menuMusic" loop>
+        <source src="music/maullidoCat.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="menuMusic" loop>
+        <source src="music/miedoCat.mp3" type="audio/mpeg">
+    </audio>
     <div id="contenedor">
         <div id="contenedor-vidas">
             <div class="corazon"></div>
@@ -21,6 +29,9 @@
         <div id="cielo"></div>
         <div id="personaje" class="correr"></div>
         <div id="piso"></div> 
+        <div class="stop-music">
+            <img id="stopMusicButton" src="images/music.png" alt="Mute Button">
+        </div>
     </div>
     
     <script src="Personaje.js"></script>

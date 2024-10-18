@@ -9,6 +9,11 @@ const modal = document.getElementById("aboutModal");
 const aboutBtn = document.getElementById("aboutButton");
 // Obtener el elemento <span> que cierra el modal
 const closeBtn = document.querySelector(".close");
+// Seleccionar el botón de detener música
+const stopMusicButton = document.getElementById('stopMusicButton');
+
+// Variable para rastrear si la música está sonando
+let isMusicPlaying = true;
 
 // Acción al hacer clic en el botón de 'Play'
 playButton.addEventListener('click', () => {
@@ -21,6 +26,7 @@ playButton.addEventListener('click', () => {
     // Iniciar el ciclo del juego (gameLoop ya se ejecuta automáticamente)
     detenerMusicaMenu(); // Detenemos la música del menú
 });
+
 
 // Reproducir música del menú
 function reproducirMusicaMenu() {
@@ -56,4 +62,16 @@ window.addEventListener("click", (event) => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+});
+
+// Acción al hacer clic en el botón de detener música
+stopMusicButton.addEventListener('click', () => {
+    if (isMusicPlaying) {
+        detenerMusicaMenu(); // Detiene la música
+        stopMusicButton.src = 'images/musicoff.png'; // Cambia a imagen de silencio
+    } else {
+        reproducirMusicaMenu(); // Reproduce la música
+        stopMusicButton.src = 'images/music.png'; // Cambia a imagen de sonido
+    }
+    isMusicPlaying = !isMusicPlaying; // Cambia el estado de la música
 });

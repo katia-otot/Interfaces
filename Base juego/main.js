@@ -3,13 +3,6 @@
 
 
 let runner = new Runner();
-
-document.addEventListener('keydown', (e) => {
-    if (e.code === "Space") {
-        runner.saltar();
-    }
-});
-
 let puntos = 0; // Inicializar contador de puntos
 let obstaculos = [];
 let vidas = 3;
@@ -17,14 +10,39 @@ let velocidadPiso = 2; // Velocidad inicial del piso en segundos
 let velocidadObstaculos = 5; // Velocidad inicial de los obstáculos en segundos
 let tiempoGeneracionObstaculos = 3000; // Tiempo inicial de generación de obstáculos en milisegundos
 let tiempoMinimoGeneracion = 1000; // Tiempo mínimo de generación de obstáculos
+let colisionesObstaculo2 = 0; // Variable para contar las colisiones con obstaculo2
+// Variable para rastrear si la música está sonando
+let isMusicPlaying = true;
 
 // Almacenar los identificadores de los intervalos
 let gameInterval = setInterval(gameLoop, 50);
 let obstaculoInterval = setInterval(generarObstaculo, tiempoGeneracionObstaculos);
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    reproducirMusica();
+});
+
 // Actualizar la visualización inicial de puntos
 actualizarPuntos();
 
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Space") {
+        runner.saltar();
+    }
+});
+
+// Reproducir música
+function reproducirMusica() {
+    let musicaJuego = document.getElementById('gameMusic');
+    musicaJuego.play(); // Iniciar la reproducción
+}
+
+// Detener la música
+function detenerMusica() {
+    let musicaJuego = document.getElementById('gameMusic');
+    musicaJuego.pause(); // Pausar la reproducción
+    musicaJuego.currentTime = 0; // Reiniciar la música
+}
 
 function actualizarPuntos() {
     let marcadorPuntos = document.getElementById('marcadorPuntos');
@@ -103,7 +121,8 @@ function gameLoop() {
         ) {
           // Colisión detectada con cualquier obstáculo
         if (obstaculo.classList.contains('obstaculo2')) {
-        // Si es el obstáculo2, se recupera una vida
+            
+            // Si es el obstáculo2, se recupera una vida
             if (vidas < 3) {
                 vidas++; // Recuperar una vida si es menor a 3
                 actualizarVidas(); // Actualizar la visualización de los corazones
@@ -129,6 +148,7 @@ function gameLoop() {
         }
     });
 }
+
 
 function generarObstaculo() {
     let obstaculo = new Obstaculo();
@@ -166,3 +186,14 @@ function mostrarGameOver() {
     contenedor.appendChild(gameOverImg);
 }
 
+// Acción al hacer clic en el botón de detener música
+stopMusicButton.addEventListener('click', () => {
+    if (isMusicPlaying) {
+        detenerMusica(); // Detiene la música
+        stopMusicButton.src = 'images/musicoff.png'; // Cambia a imagen de silencio
+    } else {
+        reproducirMusica(); // Reproduce la música
+        stopMusicButton.src = 'images/music.png'; // Cambia a imagen de sonido
+    }
+    isMusicPlaying = !isMusicPlaying; // Cambia el estado de la música
+});

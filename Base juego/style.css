@@ -109,16 +109,16 @@ body {
 
 #cielo {
     height: 80%;
-    background: url("images/backgroundColorGrass.png") repeat-x;
+    background: url("images/fondo1.png") repeat-x;
     background-size: 1280px 100%;
     position: absolute;
     animation: sky 15s linear infinite;
-    
+    width: 100%;
 }
 
 @keyframes sky {
     0% {
-        background-position: 1280px
+        background-position: 1280px;
     }
 
     100% {
@@ -279,4 +279,12 @@ body {
     z-index: 10; /* Asegura que esté encima de otros elementos */
     max-width: 80%;
     height: auto;
+}
+#stopMusicButton {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px; /* Ajusta según necesites */
+    left: 10px; /* Ajusta según necesites */
 }
