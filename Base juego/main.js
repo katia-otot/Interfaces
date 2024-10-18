@@ -1,7 +1,6 @@
 //BaseJuego/main.js
 "use strict"
-const heartImg = new Image();
-heartImg.src = 'imagen/corazonAnimacion.png';
+
 
 let runner = new Runner();
 
@@ -25,6 +24,32 @@ let obstaculoInterval = setInterval(generarObstaculo, tiempoGeneracionObstaculos
 
 // Actualizar la visualización inicial de puntos
 actualizarPuntos();
+
+// Función para recuperar una vida
+function recuperarVida() {
+    const corazon = document.getElementById('corazon');
+    corazon.style.display = 'block'; // Mostrar el corazón
+    corazon.style.animation = 'animacionRecuperarVida 1s forwards'; // Iniciar la animación
+    
+    // Escuchar el evento de finalización de la animación
+    corazon.addEventListener('animationend', () => {
+        corazon.style.display = 'none'; // Ocultar el corazón al finalizar la animación
+        corazon.style.animation = ''; // Reiniciar la animación
+    }, { once: true }); // Asegura que solo se ejecute una vez
+}
+
+// Función para perder una vida
+function perderVida() {
+    const corazon = document.getElementById('corazon');
+    corazon.style.display = 'block'; // Mostrar el corazón
+    corazon.style.animation = 'animacionPerderVida 1s forwards'; // Iniciar la animación
+
+    // Escuchar el evento de finalización de la animación
+    corazon.addEventListener('animationend', () => {
+        corazon.style.display = 'none'; // Ocultar el corazón al finalizar la animación
+        corazon.style.animation = ''; // Reiniciar la animación
+    }, { once: true }); // Asegura que solo se ejecute una vez
+}
 
 function actualizarPuntos() {
     let marcadorPuntos = document.getElementById('marcadorPuntos');
@@ -107,7 +132,8 @@ function gameLoop() {
             if (vidas < 3) {
                 vidas++; // Recuperar una vida si es menor a 3
                 actualizarVidas(); // Actualizar la visualización de los corazones
-                
+                recuperarVida();
+
             }
             puntos++;
             actualizarPuntos(); 
@@ -115,7 +141,7 @@ function gameLoop() {
                 // Colisión con otros obstáculos: perder una vida
                 vidas--;
                 actualizarVidas(); // Actualizar la visualización de los corazones
-               
+                perderVida()
             }
 
         obstaculos.splice(index, 1); // Remover obstáculo que fue chocado

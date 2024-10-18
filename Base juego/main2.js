@@ -27,6 +27,7 @@ function reproducirMusicaMenu() {
     let musicaMenu = document.getElementById('menuMusic');
     musicaMenu.play(); // Iniciar la reproducción
 }
+
 // Detener la música del menú
 function detenerMusicaMenu() {
     let musicaMenu = document.getElementById('menuMusic');

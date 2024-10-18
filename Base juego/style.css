@@ -280,3 +280,46 @@ body {
     max-width: 80%;
     height: auto;
 }
+
+#corazon {
+    width: 212px; /* Ajusta el tamaño del corazón */
+    height: 191px; /* Ajusta el tamaño del corazón */
+    background: url("images/corazonAnimacion.png") no-repeat; /* Asegúrate de que la ruta sea correcta */
+    background-size: 636px 191px;;
+    position: absolute;
+    bottom: 50%; /* Ajusta la posición según necesites */
+    left: 100px; /* Posición inicial */
+    display: none; /* Inicialmente no visible */
+}
+
+@keyframes animacionRecuperarVida {
+    0% {
+        background-position: 0; /* Primer frame */
+    }
+    33.33% {
+        background-position: -212px; /* Segundo frame */
+    }
+    100% {
+        background-position: -424px; /* Tercer frame */
+    }
+}
+
+@keyframes animacionPerderVida {
+    0% {
+        background-position: -424px; /* Tercer frame */
+    }
+    33.33% {
+        background-position: -212px; /* Segundo frame */
+    }
+    100% {
+        background-position: 0; /* Primer frame */
+    }
+}
+
+.ganar {
+    animation: moverDerecha 0.6s forwards; /* Animación al recuperar vida */
+}
+
+.perder {
+    animation: moverIzquierda 0.6s forwards; /* Animación al perder vida */
+}
